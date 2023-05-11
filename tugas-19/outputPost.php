@@ -13,15 +13,9 @@ if(isset($_POST['submit']) && isset($_FILES['avatar'])){
     $avatar = $_FILES['avatar']['name'];
     $avatar_tmp = $_FILES['avatar']['tmp_name'];
 
-    echo "avatar name = ". $avatar;
-    echo "avatar tmp =  ". $avatar_tmp;
-    echo "<br>";
-
     $img_ex = pathinfo($avatar, PATHINFO_EXTENSION);
     $img_ex_lc = strtolower($img_ex);
     $avatarName = uniqid("IMG-", true).'.'.$img_ex_lc;
-
-    echo "avatar name new = ". $avatarName;
 
     $sql_post = "INSERT INTO user (id, email, name, `role` , avatar, phone, address, password , created_at, updated_at) VALUES ('$id', '$email', '$name', '$role', '$avatarName', '$phone', '$address', '$password', DEFAULT, DEFAULT);";
 

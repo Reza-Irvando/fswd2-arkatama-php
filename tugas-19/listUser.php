@@ -34,9 +34,9 @@ while($row = mysqli_fetch_array($result)){
     <th scope='row'>" . $row['id'] . "</th>
     <td>
         <div class='btn-group' role='group' aria-label='Basic mixed styles example'>
-            <button type='button' class='btn btn-success'>Detail</button>
-            <button type='button' class='btn btn-warning'>Update</button>
-            <button type='button' class='btn btn-danger'>Delete</button>
+            <button type='button' class='btn btn-secondary'><a href=detailUser.php?id=" . $row['id'] . ">Detail</a></button>
+            <button type='button' class='btn btn-warning'><a href=updateUser.php?id=" . $row['id'] . ">Update</a></button>
+            <button type='button' class='btn btn-danger'><a href=deleteUser.php?id=" . $row['id'] . ">Delete</a></button>
         </div>
     </td>
     <td>";
