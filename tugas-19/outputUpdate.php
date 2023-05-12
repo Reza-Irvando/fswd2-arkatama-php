@@ -1,13 +1,13 @@
 <?php
 if(isset($_POST['submit']) && isset($_FILES['avatar'])){
     include "connectDB.php";
-    echo "Halaman Penambahan User. <br>";
+    echo "Hasil Edit User. <br>";
 
-    $id = $_POST['id'];
+    $id = $_GET['id'];
     $name = $_POST['name'];
     $role = $_POST['role'];
     $password = $_POST['password'];
-    $email = $_POST['email']; 
+    $email = $_POST['email'];
     $phone = $_POST['phone'];
     $address = $_POST['address'];
     $avatar = $_FILES['avatar']['name'];
@@ -17,10 +17,10 @@ if(isset($_POST['submit']) && isset($_FILES['avatar'])){
     $img_ex_lc = strtolower($img_ex);
     $avatarName = uniqid("IMG-", true).'.'.$img_ex_lc;
     
-    $sql_update = "UPDATE Customers SET email = '$email', name = '$name', `role` = '$role', avatar = '$avatarName', phone = '$phone', address = '$address', password = '$password', created_at = DEFAULT WHERE CustomerID = $id;";
+    $sql_update = "UPDATE user SET email = '$email', name = '$name', `role` = '$role', avatar = '$avatarName', phone = '$phone', address = '$address', password = '$password', updated_at = DEFAULT WHERE id = $id;";
 
     if ($conn->query($sql_update) === TRUE) {
-        echo "Insert user Successfully <br>";
+        echo "Edit user Successfully <br>";
         $img_upload_path = 'image/'. $avatarName;
         move_uploaded_file($avatar_tmp, $img_upload_path);
     } else {

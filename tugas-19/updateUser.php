@@ -11,13 +11,9 @@
     <?php
     include "connectDB.php";
     $id = $_GET['id'];
-    echo '<h1>Edit Data Pengguna ' . $id . '</h1>';
-    echo '<form class="row g-3" action="outputUpdate.php?" method="post" enctype="multipart/form-data">';
+    echo '<h1>Edit Data Pengguna Id : ' . $id . '</h1>';
+    echo '<form class="row g-3" action="outputUpdate.php?id=' . $id . '" method="post" enctype="multipart/form-data">';
         echo '
-        <div class="col-12">
-            <label type="hidden" class="form-label" for="name">Nama</label>
-            <input type="type = "hidden"" class="form-control" id="name" name="name" placeholder="Nama Lengkap" value='.$id.'>
-        </div>
         <div class="col-12">
             <label class="form-label" for="name">Nama</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap">
